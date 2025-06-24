@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitActionSystem : MonoBehaviour
 {
+    //EventHandler - nauczyc sie wiecej o DELEGATE
+    public event EventHandler OnSelectedUnitChanged;
+
     [SerializeField] private LayerMask unitLayerMask;
     [SerializeField] private Unit selectedUnit;
 
@@ -27,5 +31,17 @@ public class UnitActionSystem : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void SetSelectedUnit(Unit unit)
+    {
+        selectedUnit = unit;
+        //To dziala dokladnie tak jak Event?.Invoke Event - rzecz, ? = Null check, .Invoke - wykonanie po przejsciu checka 
+        OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+
+        if (OnSelectedUnitChanged != null) 
+        {
+            OnSelectedUnitChanged(this, EventArgs.Empty);
+        }
     }
 }
