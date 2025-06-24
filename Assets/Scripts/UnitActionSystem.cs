@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class UnitActionSystem : MonoBehaviour
 {
+    // property that can only be get through this class(private set), but accessible everywhere(public)
+    public static UnitActionSystem Instance { get; private set; }
+
     //EventHandler - nauczyc sie wiecej o DELEGATE
     public event EventHandler OnSelectedUnitChanged;
 
@@ -38,10 +41,11 @@ public class UnitActionSystem : MonoBehaviour
         selectedUnit = unit;
         //To dziala dokladnie tak jak Event?.Invoke Event - rzecz, ? = Null check, .Invoke - wykonanie po przejsciu checka 
         OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
-
-        if (OnSelectedUnitChanged != null) 
-        {
-            OnSelectedUnitChanged(this, EventArgs.Empty);
-        }
     }
+
+    public Unit GetSelectedUnit()
+    {
+        return selectedUnit;
+    }
+
 }
