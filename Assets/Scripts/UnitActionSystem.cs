@@ -39,7 +39,7 @@ public class UnitActionSystem : MonoBehaviour
         {
            if (raycastHit.transform.TryGetComponent<Unit>(out Unit unit))
             {
-                selectedUnit = unit;
+                SetSelectedUnit(unit);
                 return true;
             }
         }
