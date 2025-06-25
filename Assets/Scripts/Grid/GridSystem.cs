@@ -11,7 +11,7 @@ public class GridSystem
     private float cellSize;
     private GridObject[,] gridObjectArray;
 
-    // Constructor (jak funkcja, ale tworzysz obiekt) Unity konstuuje obiekt w monobehaviour
+    // Constructor (jak funkcja, ale tworzysz wartoœæ) Unity konstuuje obiekt w monobehaviour
     // Constructor class doesn't inherit from MonoBehavoiur
     public GridSystem(int width, int height, float cellSize)
     {
@@ -33,9 +33,9 @@ public class GridSystem
     }
 
 
-    public Vector3 GetWorldPosition(int x, int z)
+    public Vector3 GetWorldPosition(GridPosition gridPosition)
     {
-        return new Vector3(x, 0, z) * cellSize;
+        return new Vector3(gridPosition.x, 0, gridPosition.z) * cellSize;
     }
 
     public GridPosition GetGridPosition(Vector3 worldPosition)
@@ -53,8 +53,22 @@ public class GridSystem
         {
             for (int z = 0; z < height; z++)
             {
-                GameObject.Instantiate(debugPrefab, GetWorldPosition(x, z), Quaternion.identity);
+                GridPosition gridPosition = new GridPosition(x, z); 
+
+                Transform debugTransform = GameObject.Instantiate(debugPrefab, GetWorldPosition(gridPosition), Quaternion.identity);
+                GridDebugObject gridDebugObject = debugTransform.GetComponent<GridDebugObject>();
+                gridDebugObject.SetGridObject(GetGridObject(gridPosition));
             }
         }
     }
+
+    public GridObject GetGridObject(GridPosition gridPosition)
+    {
+        return gridObjectArray[gridPosition.x, gridPosition.z];
+    }
+
+
+
+
+
 }
