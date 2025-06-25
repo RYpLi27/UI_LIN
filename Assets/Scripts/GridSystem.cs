@@ -8,13 +8,15 @@ public class GridSystem
 
     private int width;
     private int height;
+    private float cellSize;
 
     // Constructor (jak funkcja, ale tworzysz obiekt) Unity konstuuje obiekt w monobehaviour
     // Constructor class doesn't inherit from MonoBehavoiur
-    public GridSystem(int width, int height)
+    public GridSystem(int width, int height, float cellSize)
     {
         this.width = width;
         this.height = height;
+        this.cellSize = cellSize;
 
         for (int x = 0; x < width; x++)
         {
@@ -28,7 +30,15 @@ public class GridSystem
 
     public Vector3 GetWorldPosition(int x, int z)
     {
-        return new Vector3(x, 0, z);
+        return new Vector3(x, 0, z) * cellSize;
     }
-    //[SerializeField] private 
+
+    public GridPosition GetGridPosition(Vector3 worldPosition)
+    {
+        return new GridPosition
+            (
+                Mathf.RoundToInt(worldPosition.x / cellSize), 
+                Mathf.RoundToInt(worldPosition.z / cellSize)
+            );
+    }
 }
