@@ -1,0 +1,34 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GridSystem
+{
+
+    private int width;
+    private int height;
+
+    // Constructor (jak funkcja, ale tworzysz obiekt) Unity konstuuje obiekt w monobehaviour
+    // Constructor class doesn't inherit from MonoBehavoiur
+    public GridSystem(int width, int height)
+    {
+        this.width = width;
+        this.height = height;
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int z = 0; z < height; z++)
+            {
+                Debug.DrawLine(GetWorldPosition(x, z), GetWorldPosition(x, z) + Vector3.right * .2f, Color.white, 1000);    
+            }
+        }
+    }
+
+
+    public Vector3 GetWorldPosition(int x, int z)
+    {
+        return new Vector3(x, 0, z);
+    }
+    //[SerializeField] private 
+}
