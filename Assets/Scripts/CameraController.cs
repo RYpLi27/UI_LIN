@@ -3,10 +3,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.VisualScripting;
+using Unity.Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] private CinemachineCamera cinemachineCamera;
     private void Update()
     {
         Vector3 inputMoveDirection = new Vector3(0, 0, 0);
@@ -26,34 +27,29 @@ public class CameraController : MonoBehaviour
         {
             inputMoveDirection.x -= 1f;
         }
-    float controllerMoveSpeed = 5f;
+        float controllerMoveSpeed = 5f;
         Vector3 moveVector = transform.forward * inputMoveDirection.z + transform.right * inputMoveDirection.x;
-    transform.position += moveVector * controllerMoveSpeed * Time.deltaTime;
+        transform.position += moveVector * controllerMoveSpeed * Time.deltaTime;
 
+
+        Vector3 rotationVector = new Vector3(0, 0, 0);
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            rotationVector.y -= 1f;
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            rotationVector.y += 1f;
+        }
+        float rotationSpeed = 100f;
+        transform.eulerAngles += rotationVector * rotationSpeed * Time.deltaTime;
+
+
+        //CinemachineRotationComposer cinemachineComposer = cinemachineCamera.GetCinemachineComponent<CinemachineFollow>();
+        //if (Input.mouseScrollDelta.y > 0)
+        //{
+        //    cinemachineComposer.TargetOffset = new Vector3(0,1,-1);
+        //}
     }
-    //private void Start()
-    //{
-    //    controllerMoveSpeed = 2f * Time.deltaTime;
-    //}
-
-    //private void Update()
-    //{
-    //    Vector3 inputMoveDirection = new Vector3(0, 0, 0);
-    //    if (Input.GetKey(KeyCode.W))
-    //    {
-    //        inputMoveDirection.z = +controllerMoveSpeed;
-    //    }
-    //    if (Input.GetKey(KeyCode.S))
-    //    {
-    //        inputMoveDirection.z = +controllerMoveSpeed;
-    //    }
-    //    if (Input.GetKey(KeyCode.D))
-    //    {
-    //        inputMoveDirection.x = controllerMoveSpeed;
-    //    }
-    //    if (Input.GetKey(KeyCode.A))
-    //    {
-    //        inputMoveDirection.x = -controllerMoveSpeed; 
-    //    }  
-    //}
 }

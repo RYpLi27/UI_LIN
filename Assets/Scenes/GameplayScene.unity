@@ -197,8 +197,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20530736}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.49264544, y: 0.00014954874, z: -0.00008466096, w: 0.87023014}
-  m_LocalPosition: {x: 8.998882, y: 13.574531, z: -4.1456213}
+  m_LocalRotation: {x: 0.38275835, y: -0.000000009732478, z: 0.000000004032247, w: 0.9238485}
+  m_LocalPosition: {x: 9, y: 7.0722146, z: -3.069921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -560,8 +560,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065501084}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4926651, y: 0.000094441624, z: -0.00005346711, w: 0.87021905}
-  m_LocalPosition: {x: 8.998882, y: 13.574531, z: -4.1456213}
+  m_LocalRotation: {x: 0.38275835, y: -0.000000009732478, z: 0.000000004032247, w: 0.9238485}
+  m_LocalPosition: {x: 9, y: 7.0722146, z: -3.069921}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -589,8 +589,8 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
-  Damping: {x: 0.5, y: 0.5}
+  TargetOffset: {x: 0, y: -5, z: 5}
+  Damping: {x: 0, y: 0}
   Lookahead:
     Enabled: 0
     Time: 0
@@ -620,12 +620,12 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 5, z: -3}
-  Damping: {x: 0.1, y: 0.1, z: 0.1}
+  TargetOffset: {x: 0, y: 0, z: 0}
+  Damping: {x: 0, y: 0, z: 0}
   Lookahead:
     Enabled: 1
     Time: 0
-    Smoothing: 0.5
+    Smoothing: 0
     IgnoreY: 0
 --- !u!1001 &1200087896
 PrefabInstance:
@@ -1110,6 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854133b545292ff46826273cf84eef57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 0}
 --- !u!1 &2141972060
 GameObject:
   m_ObjectHideFlags: 0
