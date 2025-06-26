@@ -342,7 +342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63719bd9258ae9c40a4be46b44880e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridDebugObjectPrefab: {fileID: 8511533573702507232, guid: e8e008fd61373824c860dcdd0e7f4bcc, type: 3}
 --- !u!4 &984664466
 Transform:
   m_ObjectHideFlags: 0
@@ -802,6 +801,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2041394427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1845741134 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8511533573702507232, guid: e8e008fd61373824c860dcdd0e7f4bcc, type: 3}
+  m_PrefabInstance: {fileID: 4442377622569510031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1955650642
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c7c409bcff9534a9aae0ede75cf5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridDebugObjectPrefab: {fileID: 1845741134}
 --- !u!4 &1955650644
 Transform:
   m_ObjectHideFlags: 0
@@ -1021,14 +1026,6 @@ PrefabInstance:
     - target: {fileID: 660919740008522343, guid: e8e008fd61373824c860dcdd0e7f4bcc, type: 3}
       propertyPath: m_Name
       value: GridDebugObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 5012872569394304765, guid: e8e008fd61373824c860dcdd0e7f4bcc, type: 3}
-      propertyPath: m_fontSize
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5012872569394304765, guid: e8e008fd61373824c860dcdd0e7f4bcc, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8511533573702507232, guid: e8e008fd61373824c860dcdd0e7f4bcc, type: 3}
       propertyPath: m_LocalPosition.x
