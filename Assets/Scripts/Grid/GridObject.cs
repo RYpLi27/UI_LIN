@@ -1,15 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GridObject
 {
     private GridSystem gridSystem;
     private GridPosition gridPosition;
-    private Unit unit;
+    private List<Unit> unitList;
+    
 
     public GridObject(GridSystem gridSystem, GridPosition gridPosition)
     {
         this.gridSystem = gridSystem;
         this.gridPosition = gridPosition;
+        unitList = new List<Unit>();
     }
 
     public override string ToString()
