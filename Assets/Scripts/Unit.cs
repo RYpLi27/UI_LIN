@@ -7,7 +7,6 @@ public class Unit : MonoBehaviour
 
     private GridPosition gridPosition;
     private MoveAction moveAction;
-    float rotateSpeed = 10.0f;
 
     private void Awake()
     {
@@ -35,4 +34,8 @@ public class Unit : MonoBehaviour
     {
         return moveAction;
     }
+    public GridPosition GetGridPosition()
+    { return gridPosition; }
+    
+
 }
