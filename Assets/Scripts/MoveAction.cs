@@ -29,23 +29,25 @@ public class MoveAction : MonoBehaviour
     }
     private void Update()
     {
+            Vector3 moveDirection = (targetPosition - transform.position).normalized;
 
         float stoppingDistance = .1f;
 
         if (Vector3.Distance(transform.position, targetPosition) > stoppingDistance)
         {
-            Vector3 moveDirection = (targetPosition - transform.position).normalized;
             float moveSpeed = 4.0f;
             transform.position += moveDirection * Time.deltaTime * moveSpeed;
 
-            float rotateSpeed = 10.0f;
-            transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
             unitAnimator.SetBool("IsWalking", true);
         }
         else
         {
             unitAnimator.SetBool("IsWalking", false);
         }
+
+
+            float rotateSpeed = 10.0f;
+            transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
     }
 
     public List<GridPosition> GetValidActionGridPositionList()
