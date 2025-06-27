@@ -51,7 +51,7 @@ public class GridSystemVisual : MonoBehaviour
 
     private void Update()
     {
-        UpdateGridVisual;
+        UpdateGridVisual();
     }
 
     public void ShowGridPositionList(List<GridPosition> gridPositionList)
